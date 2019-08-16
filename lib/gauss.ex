@@ -47,6 +47,26 @@ defmodule GAUSS do
     |> Enum.sum
   end
 
+  @doc """
+  ## Examples
+
+      iex(1)> GAUSS.is_prime(3)
+      true
+      iex(2)> GAUSS.is_prime(4)
+      false
+      iex(3)> GAUSS.is_prime(5)
+      true
+      iex(4)> GAUSS.is_prime(6)
+      false
+      iex(5)> GAUSS.is_prime(7)
+      true
+      iex(6)> GAUSS.is_prime(8)
+      false
+  """
+  def is_prime(a) do
+    Enum.filter(1..a, fn x  -> rem(a,x) == 0  end) |> Enum.count == 2
+  end
+
   def fib(0), do: 0
   def fib(1), do: 1
   def fib(n), do: fib(n-1) + fib(n-2)
