@@ -67,6 +67,24 @@ defmodule GAUSS do
     Enum.filter(1..a, fn x  -> rem(a,x) == 0  end) |> Enum.count == 2
   end
 
+  @doc """
+  ## Examples
+
+    iex(1)> GAUSS.find_smallest_prime_factor(200)
+    2
+    iex(4)> GAUSS.find_smallest_prime_factor(15)
+    3
+    iex(5)> GAUSS.find_smallest_prime_factor(16)
+    2
+    iex(6)> GAUSS.find_smallest_prime_factor(17)
+    17
+    iex(13)> GAUSS.find_smallest_prime_factor(25)
+    5
+  """
+  def find_smallest_prime_factor(a) do
+    Enum.filter(1..a, fn x  -> rem(a,x) == 0 and is_prime(x) end) |> Enum.at(0)
+  end
+
   def fib(0), do: 0
   def fib(1), do: 1
   def fib(n), do: fib(n-1) + fib(n-2)
