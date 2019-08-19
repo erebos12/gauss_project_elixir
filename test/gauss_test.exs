@@ -17,4 +17,10 @@ defmodule GAUSSTest do
     assert GAUSS.prime_factorization(30, []) == [5, 3, 2]
     assert GAUSS.prime_factorization(13195, []) == [29, 13, 7, 5]
   end
+
+  @tag timeout: :infinity
+  test "max prime factor" do
+    assert GAUSS.max_prime_factorization(13195) == 29
+    assert GAUSS.max_prime_factorization(30) == 5
+  end
 end

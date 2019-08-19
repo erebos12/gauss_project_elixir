@@ -96,8 +96,7 @@ defmodule GAUSS do
   def prime_factorization(a, l) do
       prime_factor = find_smallest_prime_factor(a)
       l = [prime_factor | l]
-      x = div(a, prime_factor)
-      prime_factorization(x, l)
+      div(a, prime_factor) |> prime_factorization(l)
   end
 
   @doc """
