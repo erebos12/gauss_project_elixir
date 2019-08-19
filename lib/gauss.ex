@@ -50,6 +50,10 @@ defmodule GAUSS do
   @doc """
   ## Examples
 
+      iex(1)> GAUSS.is_prime(1)
+      false
+      iex> GAUSS.is_prime(2)
+      true
       iex(1)> GAUSS.is_prime(3)
       true
       iex(2)> GAUSS.is_prime(4)
@@ -70,20 +74,50 @@ defmodule GAUSS do
   @doc """
   ## Examples
 
-    iex(1)> GAUSS.find_smallest_prime_factor(200)
+    iex> GAUSS.find_smallest_prime_factor(1)
+    nil
+    iex> GAUSS.find_smallest_prime_factor(200)
     2
-    iex(4)> GAUSS.find_smallest_prime_factor(15)
+    iex> GAUSS.find_smallest_prime_factor(15)
     3
-    iex(5)> GAUSS.find_smallest_prime_factor(16)
+    iex> GAUSS.find_smallest_prime_factor(16)
     2
-    iex(6)> GAUSS.find_smallest_prime_factor(17)
+    iex> GAUSS.find_smallest_prime_factor(17)
     17
-    iex(13)> GAUSS.find_smallest_prime_factor(25)
+    iex> GAUSS.find_smallest_prime_factor(25)
     5
   """
-  def find_smallest_prime_factor(a) do
+  def find_smallest_prime_factor(a) when is_integer(a) do
     Enum.filter(1..a, fn x  -> rem(a,x) == 0 and is_prime(x) end) |> Enum.at(0)
   end
+
+
+  def prime_factorization(1, l), do: l
+  def prime_factorization(a, l) do
+      prime_factor = find_smallest_prime_factor(a)
+      l = [prime_factor | l]
+      x = div(a, prime_factor)
+      prime_factorization(x, l)
+  end
+
+  @doc """
+  ## Examples
+
+    iex> GAUSS.max_prime_factorization(3)
+    3
+    iex> GAUSS.max_prime_factorization(25)
+    5
+    iex> GAUSS.max_prime_factorization(120)
+    5
+    iex> GAUSS.max_prime_factorization(30)
+    5
+    iex> GAUSS.max_prime_factorization(1200)
+    5
+  """
+  def max_prime_factorization(a) do
+     a |> prime_factorization([]) |> Enum.max
+  end
+
 
   def fib(0), do: 0
   def fib(1), do: 1
