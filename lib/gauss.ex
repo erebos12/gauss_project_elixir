@@ -83,7 +83,6 @@ defmodule GAUSS do
       -> if is_prime(x) and rem(a,x) == 0, do: {:halt, x}, else: {:cont, acc + x} end)
   end
 
-
   def prime_factorization(1, l), do: l
   def prime_factorization(a, l) do
       prime_factor = find_smallest_prime_factor(a)
@@ -91,24 +90,9 @@ defmodule GAUSS do
       div(a, prime_factor) |> prime_factorization(l)
   end
 
-  @doc """
-  ## Examples
-
-    iex> GAUSS.max_prime_factor(3)
-    3
-    iex> GAUSS.max_prime_factor(25)
-    5
-    iex> GAUSS.max_prime_factor(120)
-    5
-    iex> GAUSS.max_prime_factor(600851475143)
-    6857
-    iex> GAUSS.max_prime_factor(1200)
-    5
-  """
   def max_prime_factor(a) do
      a |> prime_factorization([]) |> Enum.max
   end
-
 
   def fib(0), do: 0
   def fib(1), do: 1

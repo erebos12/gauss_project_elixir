@@ -22,10 +22,15 @@ defmodule GAUSSTest do
   test "max prime factor" do
     assert GAUSS.max_prime_factor(13195) == 29
     assert GAUSS.max_prime_factor(30) == 5
+    assert GAUSS.max_prime_factor(3) == 3
+    assert GAUSS.max_prime_factor(25) == 5
+    assert GAUSS.max_prime_factor(120) == 5
+    assert GAUSS.max_prime_factor(600851475143) == 6857
+    assert GAUSS.max_prime_factor(1200) == 5
   end
 
   @tag timeout: :infinity
-  test "find smallest prime factor 2" do
+  test "find smallest prime factor" do
     assert GAUSS.find_smallest_prime_factor(200) == 2
     assert GAUSS.find_smallest_prime_factor(15) == 3
     assert GAUSS.find_smallest_prime_factor(16) == 2
