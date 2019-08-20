@@ -73,24 +73,14 @@ defmodule GAUSS do
       Enum.take_while(2..a-1, fn(x) -> rem(a, x) == 0 end) |> Enum.count == 0
   end
 
-  @doc """
-  ## Examples
-
-    iex> GAUSS.find_smallest_prime_factor(1)
-    nil
-    iex> GAUSS.find_smallest_prime_factor(200)
-    2
-    iex> GAUSS.find_smallest_prime_factor(15)
-    3
-    iex> GAUSS.find_smallest_prime_factor(16)
-    2
-    iex> GAUSS.find_smallest_prime_factor(17)
-    17
-    iex> GAUSS.find_smallest_prime_factor(25)
-    5
-  """
-  def find_smallest_prime_factor(a) when is_integer(a) do
+  def find_smallest_prime_factor_slow(a) when is_integer(a) do
     Enum.filter(1..a, fn x  -> rem(a,x) == 0 and is_prime(x) end) |> Enum.at(0)
+  end
+
+  def find_smallest_prime_factor(1), do: nil
+  def find_smallest_prime_factor(a) do
+    Enum.reduce_while(1..a, 0, fn x, acc
+      -> if is_prime(x) and rem(a,x) == 0, do: {:halt, x}, else: {:cont, acc + x} end)
   end
 
 
@@ -110,8 +100,8 @@ defmodule GAUSS do
     5
     iex> GAUSS.max_prime_factor(120)
     5
-    iex> GAUSS.max_prime_factor(30)
-    5
+    iex> GAUSS.max_prime_factor(600851475143)
+    6857
     iex> GAUSS.max_prime_factor(1200)
     5
   """
