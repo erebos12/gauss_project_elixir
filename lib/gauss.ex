@@ -67,8 +67,10 @@ defmodule GAUSS do
       iex(6)> GAUSS.is_prime(8)
       false
   """
-  def is_prime(a) do
-    Enum.filter(1..a, fn x  -> rem(a,x) == 0  end) |> Enum.count == 2
+  def is_prime(1), do: false
+  def is_prime(2), do: true
+  def is_prime(a) when is_integer(a) do
+      Enum.take_while(2..a-1, fn(x) -> rem(a, x) == 0 end) |> Enum.count == 0
   end
 
   @doc """
@@ -102,18 +104,18 @@ defmodule GAUSS do
   @doc """
   ## Examples
 
-    iex> GAUSS.max_prime_factorization(3)
+    iex> GAUSS.max_prime_factor(3)
     3
-    iex> GAUSS.max_prime_factorization(25)
+    iex> GAUSS.max_prime_factor(25)
     5
-    iex> GAUSS.max_prime_factorization(120)
+    iex> GAUSS.max_prime_factor(120)
     5
-    iex> GAUSS.max_prime_factorization(30)
+    iex> GAUSS.max_prime_factor(30)
     5
-    iex> GAUSS.max_prime_factorization(1200)
+    iex> GAUSS.max_prime_factor(1200)
     5
   """
-  def max_prime_factorization(a) do
+  def max_prime_factor(a) do
      a |> prime_factorization([]) |> Enum.max
   end
 

@@ -20,7 +20,7 @@ defmodule GAUSSTest do
 
   @tag timeout: :infinity
   test "max prime factor" do
-    assert GAUSS.max_prime_factorization(13195) == 29
-    assert GAUSS.max_prime_factorization(30) == 5
+    assert GAUSS.max_prime_factor(13195) == 29
+    assert GAUSS.max_prime_factor(30) == 5
   end
 end
