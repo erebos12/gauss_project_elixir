@@ -78,6 +78,9 @@ defmodule GAUSS do
      Integer.to_string(a) |> String.reverse == Integer.to_string(a)
   end
 
+  def factorial(0), do: 1
+  def factorial(n), do: n * factorial(n-1)
+
   def fib(0), do: 0
   def fib(1), do: 1
   def fib(n), do: fib(n-1) + fib(n-2)

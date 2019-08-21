@@ -53,4 +53,11 @@ defmodule GAUSSTest do
     assert GAUSS.is_integer_palindrom(9009) == true
     assert GAUSS.is_integer_palindrom(9109) == false
   end
+
+  test "factorial" do
+    assert GAUSS.factorial(2) == 2
+    assert GAUSS.factorial(5) == 120
+    assert GAUSS.factorial(3) == 6
+    assert GAUSS.factorial(10) == 3628800
+  end
 end
