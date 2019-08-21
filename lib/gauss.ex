@@ -47,26 +47,6 @@ defmodule GAUSS do
     |> Enum.sum
   end
 
-  @doc """
-  ## Examples
-
-      iex(1)> GAUSS.is_prime(1)
-      false
-      iex> GAUSS.is_prime(2)
-      true
-      iex(1)> GAUSS.is_prime(3)
-      true
-      iex(2)> GAUSS.is_prime(4)
-      false
-      iex(3)> GAUSS.is_prime(5)
-      true
-      iex(4)> GAUSS.is_prime(6)
-      false
-      iex(5)> GAUSS.is_prime(7)
-      true
-      iex(6)> GAUSS.is_prime(8)
-      false
-  """
   def is_prime(1), do: false
   def is_prime(2), do: true
   def is_prime(a) when is_integer(a) do

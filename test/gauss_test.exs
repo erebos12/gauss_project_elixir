@@ -2,6 +2,17 @@ defmodule GAUSSTest do
   use ExUnit.Case
   doctest GAUSS
 
+  test "is prime" do
+    assert GAUSS.is_prime(1) == false
+    assert GAUSS.is_prime(2) == true
+    assert GAUSS.is_prime(3) == true
+    assert GAUSS.is_prime(4) == false
+    assert GAUSS.is_prime(5) == true
+    assert GAUSS.is_prime(6) == false
+    assert GAUSS.is_prime(7) == true
+    assert GAUSS.is_prime(8) == false
+  end
+
   test "sum of fibonacci even elements" do
     assert GAUSS.fib(2) == 1
     assert GAUSS.fib(5) == 5
