@@ -74,6 +74,10 @@ defmodule GAUSS do
      prime_factorization(a, []) |> Enum.max
   end
 
+  def is_integer_palindrom(a) when is_integer(a) do
+     Integer.to_string(a) |> String.reverse == Integer.to_string(a)
+  end
+
   def fib(0), do: 0
   def fib(1), do: 1
   def fib(n), do: fib(n-1) + fib(n-2)

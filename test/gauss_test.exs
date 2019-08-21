@@ -46,4 +46,11 @@ defmodule GAUSSTest do
     assert GAUSS.find_smallest_prime_factor(1) == nil
     assert GAUSS.find_smallest_prime_factor(2) == 2
   end
+
+  test "integer palindrom" do
+    assert GAUSS.is_integer_palindrom(200) == false
+    assert GAUSS.is_integer_palindrom(88) == true
+    assert GAUSS.is_integer_palindrom(9009) == true
+    assert GAUSS.is_integer_palindrom(9109) == false
+  end
 end
