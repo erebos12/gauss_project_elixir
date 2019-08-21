@@ -91,7 +91,7 @@ defmodule GAUSS do
   end
 
   def max_prime_factor(a) do
-     a |> prime_factorization([]) |> Enum.max
+     prime_factorization(a, []) |> Enum.max
   end
 
   def fib(0), do: 0
