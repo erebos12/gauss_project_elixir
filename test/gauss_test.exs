@@ -60,4 +60,11 @@ defmodule GAUSSTest do
     assert GAUSS.factorial(3) == 6
     assert GAUSS.factorial(10) == 3628800
   end
+
+  test "largest palindrom product" do
+    assert GAUSS.max_product_palindrom(100..999) == 906609
+    assert GAUSS.max_product_palindrom(10..99) == 9009
+  end
+
+
 end

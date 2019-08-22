@@ -78,10 +78,8 @@ defmodule GAUSS do
      Integer.to_string(a) |> String.reverse == Integer.to_string(a)
   end
 
-  def max_product_palindrom do
-    a = 100
-    b = 999
-    x = for n <- a..b, i <- a..b, is_integer_palindrom(i * n), do: i * n
+  def max_product_palindrom(range) do
+    x = for n <- range, i <- range, is_integer_palindrom(i * n), do: i * n
     Enum.max(x)
   end
 
